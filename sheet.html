@@ -1,0 +1,544 @@
+<!--- Project Muskapa --->
+<!--- Version 0.1a (Spark) --->
+<!--- By EtoileLion --->
+<input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character"  />
+<div class="spaced">
+    <button type="action" id="btncharacter" name="act_character" data-i18n="character">Character</button>
+    <button type="action" id="btnorigins" name="act_origins" data-i18n="origins">Origins</button>
+    <button type="action" id="btnspells" name="act_spells" data-i18n="spells">Spells</button>
+	<button type="action" id="btnabilities" name="act_abilities" data-i18n="abilities">Abilities</button>
+	<button type="action" id="btnadditional" name="act_additional" data-i18n="additional">Additional</button>
+</div>
+<div class="characterTab">
+	<div class="headerdiv">
+		<div class="headertop3">
+			<div class="threecolrow">
+				<div class="col">
+					<div class="flexcontainer">
+						<h6 data-i18n="name">Name</h6>
+						<input type="text" name="attr_character_name" class="flex">
+					</div>
+					<div class="flexcontainer">
+						<h6 data-i18n="class">Class</h6>
+						<input type="text" name="attr_class" class="flex">
+					</div>
+					<div class="flexcontainer">
+						<h6 data-i18n="currency">Currency</h6>
+						<input type="text" name="attr_currency" class="flex">
+					</div>
+				</div>
+				<div class="col">
+					<div class="flexcontainer">
+						<h6 data-i18n="player">Player</h6>
+						<input type="text" name="attr_player" class="flex">
+					</div>
+					<div class="flexcontainer">
+						<h6 data-i18n="experience">Experience</h6>
+						<input type="text" name="attr_xp" class="flex">
+					</div>
+					<div class="flexcontainer">
+						<h6 data-i18n="upgradepoints">Upgrade Points</h6>
+						<input type="text" name="attr_upgradepoints" class="flex">
+					</div>				
+				</div>
+				<div class="col">
+					<div class="flexcontainer">
+						<h6 data-i18n="title">Title</h6>
+						<input type="text" name="attr_title" class="flex">
+					</div>
+					<div class="flexcontainer">
+						<h6 data-i18n="level">Level</h6>
+						<input type="text" name="attr_level" class="flex">
+						<h6 data-i18n="rank">Rank</h6>
+						<input type="text" name="attr_rank" class="flex">
+					</div>
+					<div class="flexcontainer">
+						<h6 data-i18n="skillpoints">Skill Points</h6>
+						<input type="text" name="attr_skillpoints" class="flex">
+					</div>				
+				</div>
+			</div>
+		</div>
+		<div class="vitals threecolrow spaced">
+			<div class="col">
+				<div class="boxed">
+					<h6 data-i18n="hitpoints">Hit Points</h6>
+					<input type="number" name="attr_hp" value="0">
+					<h5 data-i18n="total">Total</h5>
+					<input type="number" name="attr_hp_max" value="0">				
+				</div>
+			</div>
+			<div class="col">
+				<div class="boxed">
+					<h6 data-i18n="stamina">Stamina</h6>
+					<input type="number" name="attr_stamina" value="0">
+					<h5 data-i18n="total">Total</h5>
+					<input type="number" name="attr_stamina_max" value="0">				
+				</div>			
+			</div>
+			<div class="col">
+				<div class="boxed">
+					<h6 data-i18n="mana">Mana</h6>
+					<input type="number" name="attr_mana" value="0">
+					<h5 data-i18n="total">Total</h5>
+					<input type="number" name="attr_mana_max" value="0">
+				</div>			
+			</div>
+		</div>
+	</div>
+	<div data-name="pagebody">	
+		<div class="threecolflex">
+			<div class="col">
+				<div data-name="movement" class="flexcontainer spaced">
+					<h4  data-i18n="movement">Movement:</h4>
+					<input type="text" name="attr_move" class="flex tar">
+				</div>
+				<div data-name="injuries" class="flexcontainer">
+					<div class="blackbox flex" data-i18n="injuries">
+						Injuries:
+					</div>
+				</div>
+				<div class="spaced">
+					<div>
+						<h6 data-i18n="minor">Minor:</h6>
+						<input type="checkbox" name="attr_injury_minor_chk" class="floatright">						
+					</div>
+					<input type="text" name="attr_injury_minor" class="fullwidth">
+					<div>
+						<h6 data-i18n="severe">Severe:</h6>
+						<input type="checkbox" name="attr_injury_severe_chk" class="floatright">						
+					</div>
+					<input type="text" name="attr_injury_severe" class="fullwidth">
+					<div>
+						<h6 data-i18n="permanent">Permanent:</h6>
+						<input type="checkbox" name="attr_injury_perm_chk" class="floatright">						
+					</div>
+					<input type="text" name="attr_injury_perm" class="fullwidth">					
+				</div>				
+				<div data-name="conditions" class="spaced">
+					<div class="flexcontainer">
+						<div class="blackbox flex" data-i18n="conditions">
+							Conditions:
+						</div>
+					</div>
+					<fieldset class="repeating_conditions">
+						<div class="flexcontainer">
+							<input type="text" name="attr_condname" class="flex">
+						</div>
+					</fieldset>
+				</div>
+				<div data-name="skills" class="spaced">
+					<div class="flexcontainer">
+						<div class="blackbox joined" data-i18n="skills">
+							Skills:							
+						</div>
+						<div class="blackbox smallfont flex tar">
+							<span  data-i18n="level">Level</span> | <span data-i18n="mod">Mod</span>
+						</div>
+					</div>
+					<fieldset class="repeating_skills">
+						<div class="flexcontainer">
+							<input type="text" name="attr_skillname" class="flex">
+							<input type="number" name="attr_skilllevel" class="padsides" value="0" style="border-right: 1px black solid; border-radius: 0px">
+							<input type="hidden" name="attr_skillmod" value="0">
+							<span class="fakeinput" name="attr_skillmod">0</span>
+						</div>
+					</fieldset>				
+				</div>			
+			</div>
+			<div class="col">
+				<div class="wheelbox">
+					<img src="https://www.shadowrequiem.space/images/wheel.png" width="380px" height="380px" style="z-index:10">
+					<input type="number" value="0" step=1 name="attr_agi" id="wheel-agi"> 
+					<input type="number" value="0" step=1 name="attr_str" id="wheel-str">
+					<input type="number" value="0" step=1 name="attr_vit" id="wheel-vit">
+					<input type="number" value="0" step=1 name="attr_sense" id="wheel-sense">
+					<input type="number" value="0" step=1 name="attr_charm" id="wheel-charm">
+					<input type="number" value="0" step=1 name="attr_will" id="wheel-will">
+					<input type="number" value="0" step=1 name="attr_luck" id="wheel-luck">
+					<input type="number" value="0" step=1 name="attr_int" id="wheel-int">					
+					<input type="hidden" name="attr_strMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-str.png" class="wheel-slice" style="z-index:1">
+					
+					<input type="hidden" name="attr_agiMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-agi.png" class="wheel-slice" style="z-index:2">
+					<input type="hidden" name="attr_intMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-int.png" class="wheel-slice" style="z-index:3">
+					<input type="hidden" name="attr_luckMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-luck.png" class="wheel-slice" style="z-index:4">
+					<input type="hidden" name="attr_charmMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-charm.png" class="wheel-slice" style="z-index:5">
+					<input type="hidden" name="attr_willMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-will.png" class="wheel-slice" style="z-index:6">
+					<input type="hidden" name="attr_vitMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-vit.png" class="wheel-slice" style="z-index:7">
+					<input type="hidden" name="attr_senseMod" class="wheel-attr" value="0">
+					<img src="https://www.shadowrequiem.space/images/wheel-sense.png" class="wheel-slice" style="z-index:8">
+					
+				</div>
+				<div data-name="traits" class="spaced twocolrow">
+					<div class="col">
+						<div class="blackbox" data-i18n="traits">
+							Traits:
+						</div>								
+					</div>
+					<div class="col">
+						<div class="flexcontainer">
+							<input type="text" name="attr_traits0" class="flex">
+						</div>
+						<div class="flexcontainer">
+							<input type="text" name="attr_traits1" class="flex">
+						</div>
+					</div>
+					<fieldset class="repeating_traits">
+						<div class="twocolrow">
+							<div class="col">
+								<input type="text" name="attr_trait1" class="fullwidth">
+							</div>
+							<div class="col">
+								<input type="text" name="attr_trait2" class="fullwidth">
+							</div>									
+						</div>
+					</fieldset>
+				</div>				
+			</div>
+			<div class="col">
+				<div data-name="wheelandtraits">
+					
+					<div data-name="traitarmor" class="spaced">
+						
+						<div data-name="armor" class="flexcontainer">
+							<div class="blackbox flex" data-i18n="armor">
+								Armor:
+							</div>
+							
+						</div>
+						<div class="flexcontainer">
+							<h6 data-i18n="head">Head:</h6><input type="text" name="attr_head" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_headdur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_headdur_max" class="flex" value="0">							
+						</div>	
+						<div class="flexcontainer">
+							<h6 data-i18n="torso">Torso:</h6><input type="text" name="attr_torso" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_torsodur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_torsodur_max" class="flex" value="0">							
+						</div>
+						<div class="flexcontainer">
+							<h6 data-i18n="arms">Arms:</h6><input type="text" name="attr_arms" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_armsdur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_armsdur_max" class="flex" value="0">							
+						</div>
+						<div class="flexcontainer">
+							<h6 data-i18n="legs">Legs:</h6><input type="text" name="attr_legs" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_legsdur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_legsdur_max" class="flex" value="0">							
+						</div>
+						<div class="flexcontainer">
+							<h6 data-i18n="leftring">Left Ring:</h6><input type="text" name="attr_lring" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_lringdur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_lringdur_max" class="flex" value="0">							
+						</div>
+						<div class="flexcontainer">
+							<h6 data-i18n="rightring">Right Ring:</h6><input type="text" name="attr_rring" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_rringdur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_rringdur_max" class="flex" value="0">							
+						</div>
+						<div class="flexcontainer">
+							<h6 data-i18n="shield">Shield:</h6><input type="text" name="attr_shield" class="flex">							
+						</div>
+						<div class="flexcontainer">
+							<h5 data-i18n="durability">Durability</h5><input type="number" name="attr_shielddur" class="flex" value="0">
+							<h5 data-i18n="total">Total</h5><input type="number" name="attr_shielddur_max" class="flex" value="0">							
+						</div>
+					</div>
+					<div class="flexcontainer spaced">
+						<h4 data-i18n="damagereduction">Damage Reduction</h4>
+						<input type="hidden" name="attr_damagereduction" value="0">
+						<span class="flex fakeinput tar" name="attr_damagereduction"></span>
+					</div>
+				</div>				
+			</div>
+		</div>		
+		<div data-name="weapons" class="spaced">
+			<div class="flexcontainer">
+				<div class="blackbox" data-i18n="weapons">
+					Weapons:
+				</div>
+				<div class="blackbox smallfont flex flexcontainer">
+					<span class="flex" data-i18n="type">Type</span>
+					<span class="flex" data-i18n="range">Range</span>
+					<span class="flex" data-i18n="damage">Damage</span>
+					<span class="flex" data-i18n="durability">Durability</span>								
+					<span class="flex" data-i18n="total">Total</span>
+				</div>
+			</div>
+			<fieldset class="repeating_weapons">
+				<div class="spaced flexcontainer">
+					<input type="text" name="attr_weapon" class="flex">
+				</div>
+			</fieldset>
+		</div>
+		<div data-name="perks" class="spaced">
+			<div class="flexcontainer">
+				<h4 data-i18n="perks">Perks:</h4>
+				<h6 data-i18n="perktext">&emsp;RECEIVED AT LEVELS 5, 15, 25, ETC OF EACH ATTRIBUTE</h6>
+			</div>
+			<fieldset class="repeating_perks">
+				<div class="spaced twocolrow">
+					<div class="col">
+						<input type="text" name="attr_perk1" class="fullwidth">
+					</div>
+					<div class="col">
+						<input type="text" name="attr_perk2" class="fullwidth">
+					</div>
+				</div>
+			</fieldset>			
+		</div>
+		<div data-name="abilities" class="spaced">
+			<div class="flexcontainer">
+				<div class="blackbox" data-i18n="abilities">
+					Abilities:
+				</div>
+				<div class="blackbox smallfont flex flexcontainer">
+					<span class="flex" data-i18n="cost">Cost</span>
+					<span class="flex" data-i18n="duration">Duration</span>
+					<span class="flex" data-i18n="target">Target</span>
+					<span class="flex" data-i18n="range">Range</span>								
+					<span class="flex" data-i18n="castingtime">Casting Time</span>
+					<span class="flex" data-i18n="apcost">AP Cost</span>
+				</div>
+			</div>
+			<fieldset class="repeating_abilities">
+				<div class="spaced flexcontainer">
+					<input type="text" name="attr_ability" class="flex">
+				</div>
+			</fieldset>			
+		</div>
+		<div data-name="spells" class="spaced">
+			<div class="flexcontainer">
+				<div class="blackbox" data-i18n="spells">
+					Spells:
+				</div>
+				<div class="blackbox smallfont flex flexcontainer">
+					<span class="flex" data-i18n="cost">Cost</span>
+					<span class="flex" data-i18n="duration">Duration</span>
+					<span class="flex" data-i18n="target">Target</span>
+					<span class="flex" data-i18n="range">Range</span>								
+					<span class="flex" data-i18n="castingtime">Casting Time</span>
+					<span class="flex" data-i18n="apcost">AP Cost</span>								
+				</div>
+			</div>
+			<fieldset class="repeating_spells">
+				<div class="spaced flexcontainer">
+					<input type="text" name="attr_spell" class="flex">
+				</div>
+			</fieldset>			
+		</div>		
+	</div>
+</div>
+</div>
+<div class="originsTab">
+	<div class="spaced">
+		<h6 data-i18n="originhead">Origin Stories (5 Traits Total)</h6>
+	</div>
+	<div class="flexcontainer">
+		<h6 data-i18n="originbefore">Before The Isekai Event:</h6>
+		<input type="text" name="attr_beforeevent" class="flex">
+	</div>
+	<div class="flexcontainer">
+		<h6 data-i18n="traits">Traits:</h6>
+		<input type="text" name="attr_origintrait1" class="flex">
+		<input type="text" name="attr_origintrait2" class="flex padsides">
+		<input type="text" name="attr_origintrait3" class="flex">
+	</div>
+	<div>
+		<h6 data-i18n="originlifelike">What was your life like?</h6>
+	</div>
+	<textarea name="attr_originprelife"></textarea>
+	<div class="flexcontainer">
+		<h6 data-i18n="originduring">During The Isekai Event:</h6>
+		<input type="text" name="attr_duringevent" class="flex">
+	</div>
+	<div class="flexcontainer">
+		<h6 data-i18n="traits">Traits:</h6>
+		<input type="text" name="attr_origintrait4" class="flex">
+		<input type="text" name="attr_origintrait5" class="flex padsides">
+		<input type="text" name="attr_origintrait6" class="flex">
+	</div>
+	<div>
+		<h6 data-i18n="originreaction">How did you react to the Isekai Event?</h6>
+	</div>
+	<textarea name="attr_originreaction"></textarea>	
+	<div class="flexcontainer">
+		<h6 data-i18n="originafter">After The Isekai Event:</h6>
+		<input type="text" name="attr_afterevent" class="flex">
+	</div>
+	<div class="flexcontainer">
+		<h6 data-i18n="traits">Traits:</h6>
+		<input type="text" name="attr_origintrait7" class="flex">
+		<input type="text" name="attr_origintrait8" class="flex padsides">
+		<input type="text" name="attr_origintrait9" class="flex">
+	</div>
+	<div>
+		<h6 data-i18n="originlifechanged">Now that your life has changed, what will you do?</h6>
+	</div>
+	<textarea name="attr_originfuture" class="spaced"></textarea>		
+	<div>
+		<h6 data-i18n="universaltraits">Universal Traits (5 traits)</h6>
+	</div>
+	<textarea name="attr_originuniversaltraits" class="spaced"></textarea>
+	<div>
+		<h6 data-i18n="adversities">Adversities:</h6>
+	</div>
+	<textarea name="attr_originadversity" class="spaced"></textarea>	
+	<div>
+		<h6 data-i18n="notes">Notes:</h6>
+	</div>
+	<textarea name="attr_originnotes" class="spaced"></textarea>	
+</div>
+<div class="spellsTab">
+	<div class="flexcontainer">
+		<div class="blackbox" data-i18n="spells">
+			Spells:
+		</div>
+		<div class="blackbox smallfont flex flexcontainer">
+			<span class="flex" data-i18n="cost">Cost</span>
+			<span class="flex" data-i18n="duration">Duration</span>
+			<span class="flex" data-i18n="target">Target</span>
+			<span class="flex" data-i18n="range">Range</span>								
+			<span class="flex" data-i18n="castingtime">Casting Time</span>
+			<span class="flex" data-i18n="apcost">AP Cost</span>
+			<span class="flex" data-i18n="upgrades">Upgrades</span>
+		</div>
+	</div>
+	<fieldset class="repeating_spellsfull">
+		<div class="spaced flexcontainer">
+			<input type="text" name="attr_spell" class="flex">
+		</div>
+	</fieldset>	
+</div>
+<div class="abilitiesTab">
+	<div class="flexcontainer">
+		<div class="blackbox" data-i18n="abilities">
+			Abilities:
+		</div>
+		<div class="blackbox smallfont flex flexcontainer">
+			<span class="flex" data-i18n="cost">Cost</span>
+			<span class="flex" data-i18n="duration">Duration</span>
+			<span class="flex" data-i18n="target">Target</span>
+			<span class="flex" data-i18n="range">Range</span>								
+			<span class="flex" data-i18n="castingtime">Casting Time</span>
+			<span class="flex" data-i18n="apcost">AP Cost</span>
+			<span class="flex" data-i18n="upgrades">Upgrades</span>
+		</div>
+	</div>
+	<fieldset class="repeating_abilitiesfull">
+		<div class="spaced flexcontainer">
+			<input type="text" name="attr_ability" class="flex">
+		</div>
+	</fieldset>	
+</div>
+<div class="additionalTab">
+	<div class="spaced">
+		<div class="flexcontainer spaced">
+			<h4 data-i18n="perks">Perks:</h4>
+			<h6 data-i18n="perktext">&emsp;RECEIVED AT LEVELS 5, 15, 25, ETC OF EACH ATTRIBUTE</h6>
+		</div>
+		<fieldset class="repeating_perksfull spaced">
+			<div class="spaced threecolrow">
+				<div class="col">
+					<input type="text" name="attr_perk1" class="fullwidth">
+				</div>
+				<div class="col">
+					<input type="text" name="attr_perk2" class="fullwidth">
+				</div>
+				<div class="col">
+					<input type="text" name="attr_perk3" class="fullwidth">
+				</div>								
+			</div>
+		</fieldset>
+	</div>
+	<div class="spaced">
+		<div class="flexcontainer spaced">
+			<div class="blackbox" data-i18n="inventory">
+				Inventory:
+			</div>
+			<div class="blackbox smallfont flex flexcontainer">
+				<span class="flex" data-i18n="invname">Name</span>
+				<span data-i18n="qty">Qty.</span>
+				<span class="flex" data-i18n="type">Type</span>
+				<span class="flex" data-i18n="range">Range</span>
+				<span class="flex" data-i18n="damage">Damage</span>								
+				<span class="flex" data-i18n="durability">Durability</span>
+				<span class="flex" data-i18n="total">Total</span>
+				<span data-i18n="broken">Broken</span>
+			</div>
+		</div>
+		<fieldset class="repeating_inventory spaced">
+			<div class="spaced flexcontainer">
+				<input type="text" name="attr_itemname" style="flex:2">
+				<input type="number" name="attr_itemqty" class="boxedinv padsides">
+				<input type="text" class="boxedinv flex padsides" name="attr_type">
+				<input type="text" class="boxedinv flex padsides" name="attr_range">
+				<input type="text" class="boxedinv flex padsides" name="attr_damage">
+				<input type="text" class="boxedinv flex padsides" name="attr_durability">
+				<input type="text" class="boxedinv flex padsides" name="attr_total">
+				<input type="checkbox" class="invcheck" name="attr_broken">
+			</div>
+		</fieldset>
+	</div>
+	<div class="flexcontainer spaced">
+		<div class="blackbox flex" data-i18n="levelupnotes">
+			Level Up Notes
+		</div>							
+	</div>
+	<fieldset class="repeating_levelnotes">
+		<div class="spaced flexcontainer">
+			<input type="text" name="attr_note" class="flex">
+		</div>
+	</fieldset>	
+</div>
+<script type="text/worker">
+	on("change:str change:agi change:luck change:charm change:vit change:sense change:will change:int sheet:opened", function () {
+		let attrs = ['str','agi','luck','charm','vit','sense','will', 'int'];
+		getAttrs(attrs, function(values) {
+			let setMod = {};
+			attrs.forEach((x) => {
+				let mod = Math.floor((parseInt(values[x])||0) / 10);
+				setMod[x+"Mod"] = mod;
+			});
+			setAttrs(setMod);
+		});	
+	});
+	
+	on("change:headdur change:torsodur change:armsdur change:legsdur change:lringdur change:rringdur change:shielddur sheet:opened", function() {
+		let attrs = ["headdur","torsodur","armsdur","legsdur","lringdur","rringdur","shielddur"];
+		getAttrs(attrs, function(values) {
+			let sum = 0;
+			attrs.forEach((x) => { sum += parseInt(values[x])||0; });;
+			setAttrs({"damagereduction":sum});
+		});
+	});
+	
+	on("clicked:character", function() { setAttrs({"sheetTab":"character"}); });
+	on("clicked:origins", function() { setAttrs({"sheetTab":"origins"}); });
+	on("clicked:spells", function() { setAttrs({"sheetTab":"spells"}); });
+	on("clicked:abilities", function() { setAttrs({"sheetTab":"abilities"}); });
+	on("clicked:additional", function() { setAttrs({"sheetTab":"additional"}); });
+	
+	on("change:repeating_skills:skilllevel", function(eventInfo) {
+		setAttrs({"repeating_skills_skillmod":Math.floor((parseInt(eventInfo.newValue)||0)/10)});		
+	});
+	</script>						
