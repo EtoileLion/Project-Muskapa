@@ -41,7 +41,7 @@
 "range":"Range",
 "damage":"Damage",
 "perks":"Perks:",
-"perktext":" RECEIVED AT LEVELS 5, 15, 25, ETC OF EACH ATTRIBUTE",
+"perktext":"&emsp;RECEIVED AT LEVELS 5, 15, 25, ETC OF EACH ATTRIBUTE",
 "cost":"Cost",
 "duration":"Duration",
 "target":"Target",
