@@ -68,7 +68,7 @@ font-size: 16px;
 	background: transparent;
 }
 
-.charsheet input[type='text'] {
+.charsheet input[type='text']:not(.boxedinv) {
 	border-left: none;
 	border-right: none;
 	border-top: none;
@@ -85,7 +85,7 @@ font-size: 16px;
 	background: transparent;
 }
 .sheet-darkmode .charsheet input[type='number'],
-.sheet-darkmode .charsheet input[type='text'],
+.sheet-darkmode .charsheet input[type='text']:not(.boxedinv),
 .sheet-darkmode .charsheet textarea {
 	border-top: 0px none transparent;
 	border-left: 0px none transparent;
@@ -197,10 +197,22 @@ font-size: 16px;
 	margin-right: 4px;
 }
 .boxedinv {
-	border-bottom: 1px solid black !important;
-	border-left: 1px solid black !important;
-	border-right: 1px solid black !important;
-	border-top: 1px solid black !important;
+	width: 0px;
+	font-family: Rationale;
+	font-size: 16px;
+	background: transparent;	
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
+}
+
+.sheet-darkmode .boxedinv {
+	color: rgb(179,179,179);
+	border-bottom: 1px solid rgb(179,179,179);
+	border-left: 1px solid rgb(179,179,179);
+	border-right: 1px solid rgb(179,179,179);
+	border-top: 1px solid rgb(179,179,179);
 }
 
 .tar {
