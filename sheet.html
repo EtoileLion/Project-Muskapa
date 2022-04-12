@@ -1,13 +1,13 @@
 <!--- Project Muskapa --->
-<!--- Version 0.1a (Spark) --->
+<!--- Version 0.2 (Ember) --->
 <!--- By EtoileLion --->
 <input type="hidden" class="tabstoggle" name="attr_sheetTab"  value="character"  />
 <div class="spaced">
-    <button type="action" id="btncharacter" name="act_character" data-i18n="character">Character</button>
-    <button type="action" id="btnorigins" name="act_origins" data-i18n="origins">Origins</button>
-    <button type="action" id="btnspells" name="act_spells" data-i18n="spells">Spells</button>
-	<button type="action" id="btnabilities" name="act_abilities" data-i18n="abilities">Abilities</button>
-	<button type="action" id="btnadditional" name="act_additional" data-i18n="additional">Additional</button>
+    <button type="action" class="tabbutton" id="btncharacter" name="act_character" data-i18n="character">Character</button>
+    <button type="action" class="tabbutton" id="btnorigins" name="act_origins" data-i18n="origins">Origins</button>
+    <button type="action" class="tabbutton" id="btnspells" name="act_spells" data-i18n="spellsbtn">Spells</button>
+	<button type="action" class="tabbutton" id="btnabilities" name="act_abilities" data-i18n="abilitiesbtn">Abilities</button>
+	<button type="action" class="tabbutton" id="btnadditional" name="act_additional" data-i18n="additional">Additional</button>
 </div>
 <div class="characterTab">
 	<div class="headerdiv">
@@ -38,7 +38,9 @@
 					</div>
 					<div class="flexcontainer">
 						<h6 data-i18n="upgradepoints">Upgrade Points</h6>
-						<input type="text" name="attr_upgradepoints" class="flex">
+						<input type="text" name="attr_upgradepoints" class="flex alignright">
+						<h6>/</h6>
+						<span class="fakeinput flex alignleft" name="attr_upgradepointstotal"></span>						
 					</div>				
 				</div>
 				<div class="col">
@@ -48,13 +50,15 @@
 					</div>
 					<div class="flexcontainer">
 						<h6 data-i18n="level">Level</h6>
-						<input type="text" name="attr_level" class="flex">
+						<input type="number" name="attr_level" class="flex" value="1" min="1">
 						<h6 data-i18n="rank">Rank</h6>
 						<input type="text" name="attr_rank" class="flex">
 					</div>
 					<div class="flexcontainer">
 						<h6 data-i18n="skillpoints">Skill Points</h6>
-						<input type="text" name="attr_skillpoints" class="flex">
+						<input type="text" name="attr_skillpoints" class="flex alignright">
+						<h6>/</h6>
+						<span class="fakeinput flex alignleft" name="attr_skillpointstotal"></span>
 					</div>				
 				</div>
 			</div>
@@ -65,7 +69,10 @@
 					<h6 data-i18n="hitpoints">Hit Points</h6>
 					<input type="number" name="attr_hp" value="0">
 					<h5 data-i18n="total">Total</h5>
-					<input type="number" name="attr_hp_max" value="0">				
+					<input type="number" name="attr_hp_max" value="0">
+					<div class="break"></div>
+					<h5 data-i18n="temp">Temp</h5>
+					<input type="text" class="flex" name="attr_hptemp">
 				</div>
 			</div>
 			<div class="col">
@@ -74,6 +81,9 @@
 					<input type="number" name="attr_stamina" value="0">
 					<h5 data-i18n="total">Total</h5>
 					<input type="number" name="attr_stamina_max" value="0">				
+					<div class="break"></div>
+					<h5 data-i18n="temp">Temp</h5>
+					<input type="text" class="flex"  name="attr_staminatemp">					
 				</div>			
 			</div>
 			<div class="col">
@@ -82,6 +92,9 @@
 					<input type="number" name="attr_mana" value="0">
 					<h5 data-i18n="total">Total</h5>
 					<input type="number" name="attr_mana_max" value="0">
+					<div class="break"></div>
+					<h5 data-i18n="temp">Temp</h5>
+					<input type="text" class="flex" name="attr_manatemp">					
 				</div>			
 			</div>
 		</div>
@@ -90,7 +103,7 @@
 		<div class="threecolflex">
 			<div class="col">
 				<div data-name="movement" class="flexcontainer spaced">
-					<h4  data-i18n="movement">Movement:</h4>
+					<h4 data-i18n="movement">Movement:</h4>
 					<input type="text" name="attr_move" class="flex tar">
 				</div>
 				<div data-name="injuries" class="flexcontainer">
@@ -115,6 +128,27 @@
 					</div>
 					<input type="text" name="attr_injury_perm" class="fullwidth">					
 				</div>				
+				<div data-name="buffs" class="spaced">
+					<div class="flexcontainer">
+						<div class="blackbox flex" data-i18n="addmods">
+							Additional Modifiers:
+						</div>
+					</div>
+					<div class="twocolrow">
+						<div class="col">
+							<div><h6>Str:</h6> <input type="number" name="attr_strBuff" value="0"></div>
+							<div><h6>Agi:</h6> <input type="number" name="attr_agiBuff" value="0"></div>
+							<div><h6>Vit:</h6> <input type="number" name="attr_vitBuff" value="0"></div>
+							<div><h6>Sen:</h6> <input type="number" name="attr_senseBuff" value="0"></div>
+						</div>
+						<div class="col">
+							<div><h6>Chm:</h6> <input type="number" name="attr_charmBuff" value="0"></div>
+							<div><h6>Wil:</h6> <input type="number" name="attr_willBuff" value="0"></div>
+							<div><h6>Lck:</h6> <input type="number" name="attr_luckBuff" value="0"></div>
+							<div><h6>Int:</h6> <input type="number" name="attr_intBuff" value="0"></div>
+						</div>						
+					</div>
+				</div>				
 				<div data-name="conditions" class="spaced">
 					<div class="flexcontainer">
 						<div class="blackbox flex" data-i18n="conditions">
@@ -126,29 +160,11 @@
 							<input type="text" name="attr_condname" class="flex">
 						</div>
 					</fieldset>
-				</div>
-				<div data-name="skills" class="spaced">
-					<div class="flexcontainer">
-						<div class="blackbox joined" data-i18n="skills">
-							Skills:							
-						</div>
-						<div class="blackbox smallfont flex tar">
-							<span  data-i18n="level">Level</span> | <span data-i18n="mod">Mod</span>
-						</div>
-					</div>
-					<fieldset class="repeating_skills">
-						<div class="flexcontainer">
-							<input type="text" name="attr_skillname" class="flex">
-							<input type="number" name="attr_skilllevel" class="padsides" value="0" style="border-right: 1px black solid; border-radius: 0px">
-							<input type="hidden" name="attr_skillmod" value="0">
-							<span class="fakeinput" name="attr_skillmod">0</span>
-						</div>
-					</fieldset>				
-				</div>			
+				</div>							
 			</div>
 			<div class="col">
 				<div class="wheelbox">
-					<img src="https://www.shadowrequiem.space/images/wheel.png" width="380px" height="380px" style="z-index:10">
+					<img class="wheelgrid" width="380px" height="380px" style="z-index:10">
 					<input type="number" value="0" step=1 name="attr_agi" id="wheel-agi"> 
 					<input type="number" value="0" step=1 name="attr_str" id="wheel-str">
 					<input type="number" value="0" step=1 name="attr_vit" id="wheel-vit">
@@ -175,31 +191,36 @@
 					<input type="hidden" name="attr_senseMod" class="wheel-attr" value="0">
 					<img src="https://www.shadowrequiem.space/images/wheel-sense.png" class="wheel-slice" style="z-index:8">
 					
+					<button type="action" class="wheelbutton" id="agiroll" name="act_agiroll"></button>
+					<button type="action" class="wheelbutton" id="strroll" name="act_strroll"></button>
+					<button type="action" class="wheelbutton" id="vitroll" name="act_vitroll"></button>
+					<button type="action" class="wheelbutton" id="senseroll" name="act_senseroll"></button>
+					<button type="action" class="wheelbutton" id="introll" name="act_introll"></button>
+					<button type="action" class="wheelbutton" id="charmroll" name="act_charmroll"></button>
+					<button type="action" class="wheelbutton" id="willroll" name="act_willroll"></button>
+					<button type="action" class="wheelbutton" id="luckroll" name="act_luckroll"></button>
 				</div>
-				<div data-name="traits" class="spaced twocolrow">
-					<div class="col">
-						<div class="blackbox" data-i18n="traits">
-							Traits:
-						</div>								
+				<div class="flexcontainer">
+					<div class="blackbox flex padsides" data-i18n="traits">
+						Traits
 					</div>
-					<div class="col">
-						<div class="flexcontainer">
-							<input type="text" name="attr_traits0" class="flex">
-						</div>
-						<div class="flexcontainer">
-							<input type="text" name="attr_traits1" class="flex">
-						</div>
-					</div>
-					<fieldset class="repeating_traits">
-						<div class="twocolrow">
-							<div class="col">
-								<input type="text" name="attr_trait1" class="fullwidth">
-							</div>
-							<div class="col">
-								<input type="text" name="attr_trait2" class="fullwidth">
-							</div>									
-						</div>
-					</fieldset>
+				</div>														
+				<div data-name="traits" class="spaced fiftywidth">				
+					<input type="text" name="attr_unitrait1" placeholder=".">
+					<input type="text" name="attr_unitrait2" placeholder=".">
+					<input type="text" name="attr_unitrait3" placeholder=".">
+					<input type="text" name="attr_unitrait4" placeholder=".">
+					<input type="text" name="attr_unitrait5" placeholder=".">
+					<input type="text" name="attr_trait1" placeholder=".">
+					<input type="text" name="attr_trait2" placeholder=".">
+					<input type="text" name="attr_trait3" placeholder=".">
+					<input type="text" name="attr_trait4" placeholder=".">
+					<input type="text" name="attr_trait5" placeholder=".">
+					<input type="text" name="attr_trait6" placeholder=".">
+					<input type="text" name="attr_trait7" placeholder=".">
+					<input type="text" name="attr_trait8" placeholder=".">
+					<input type="text" name="attr_trait9" placeholder=".">
+					<h6>(Input on Origin Tab)</h6>
 				</div>				
 			</div>
 			<div class="col">
@@ -268,6 +289,25 @@
 						<input type="hidden" name="attr_damagereduction" value="0">
 						<span class="flex fakeinput tar" name="attr_damagereduction"></span>
 					</div>
+					<div data-name="skills" class="spaced">
+						<div class="flexcontainer">
+							<div class="blackbox joined" data-i18n="skills">
+								Skills:							
+							</div>
+							<div class="blackbox smallfont flex tar">
+								<span  data-i18n="level">Level</span> | <span data-i18n="mod">Mod</span>
+							</div>
+						</div>
+						<fieldset class="repeating_skills">
+							<div class="flexcontainer">
+								<button type="action" name="act_skillroll" class="dicefontd20">0</button>
+								<input type="text" name="attr_skillname" class="flex">
+								<input type="number" name="attr_skilllevel" class="padsides" value="0" style="border-right: 1px black solid; border-radius: 0px">
+								<input type="hidden" name="attr_skillmod" value="0">
+								<span class="fakeinput" name="attr_skillmod">0</span>
+							</div>
+						</fieldset>				
+					</div>					
 				</div>				
 			</div>
 		</div>		
@@ -292,17 +332,12 @@
 		</div>
 		<div data-name="perks" class="spaced">
 			<div class="flexcontainer">
-				<h4 data-i18n="perks">Perks:</h4>
-				<h6 data-i18n="perktext">&emsp;RECEIVED AT LEVELS 5, 15, 25, ETC OF EACH ATTRIBUTE</h6>
+				<h4 data-i18n="perks" class="flex">Perks</h4>
 			</div>
 			<fieldset class="repeating_perks">
-				<div class="spaced twocolrow">
-					<div class="col">
-						<input type="text" name="attr_perk1" class="fullwidth">
-					</div>
-					<div class="col">
-						<input type="text" name="attr_perk2" class="fullwidth">
-					</div>
+				<input type="hidden" name="attr_onmain">
+				<div class="spaced">					
+					<span name="attr_perk" class="fakeinput"></span>
 				</div>
 			</fieldset>			
 		</div>
@@ -310,7 +345,7 @@
 			<div class="flexcontainer">
 				<div class="blackbox" data-i18n="abilities">
 					Abilities:
-				</div>
+				</div>				
 				<div class="blackbox smallfont flex flexcontainer">
 					<span class="flex" data-i18n="cost">Cost</span>
 					<span class="flex" data-i18n="duration">Duration</span>
@@ -321,7 +356,8 @@
 				</div>
 			</div>
 			<fieldset class="repeating_abilities">
-				<div class="spaced flexcontainer">
+				<input type="hidden" name="attr_onmain">
+				<div class="spaced flexcontainer">					
 					<input type="text" name="attr_ability" class="flex">
 				</div>
 			</fieldset>			
@@ -341,13 +377,41 @@
 				</div>
 			</div>
 			<fieldset class="repeating_spells">
-				<div class="spaced flexcontainer">
+				<input type="hidden" name="attr_onmain">
+				<div class="spaced flexcontainer">					
 					<input type="text" name="attr_spell" class="flex">
 				</div>
 			</fieldset>			
-		</div>		
+		</div>
+		<div class="flexcontainer spaced">
+			<div class="blackbox" data-i18n="inventory">
+				Inventory:
+			</div>
+			<div class="blackbox smallfont flex flexcontainer">
+				<span class="flex" data-i18n="invname">Name</span>
+				<span data-i18n="qty">Qty.</span>
+				<span class="flex" data-i18n="type">Type</span>
+				<span class="flex" data-i18n="range">Range</span>
+				<span class="flex" data-i18n="damage">Damage</span>								
+				<span class="flex" data-i18n="durability">Durability</span>
+				<span class="flex" data-i18n="total">Total</span>
+				<span data-i18n="broken">Broken</span>
+			</div>
+		</div>
+		<fieldset class="repeating_inventory spaced">
+			<input type="hidden" class="invcheck" name="attr_onmain">		
+			<div class="spaced flexcontainer">
+				<input type="text" name="attr_itemname" style="flex:2">
+				<input type="number" name="attr_itemqty" class="boxedinv padsides">
+				<input type="text" class="boxedinv flex padsides" name="attr_type">
+				<input type="text" class="boxedinv flex padsides" name="attr_range">
+				<input type="text" class="boxedinv flex padsides" name="attr_damage">
+				<input type="text" class="boxedinv flex padsides" name="attr_durability">
+				<input type="text" class="boxedinv flex padsides" name="attr_total">
+				<input type="checkbox" class="invcheck" name="attr_broken">
+			</div>
+		</fieldset>
 	</div>
-</div>
 </div>
 <div class="originsTab">
 	<div class="spaced">
@@ -359,9 +423,9 @@
 	</div>
 	<div class="flexcontainer">
 		<h6 data-i18n="traits">Traits:</h6>
-		<input type="text" name="attr_origintrait1" class="flex">
-		<input type="text" name="attr_origintrait2" class="flex padsides">
-		<input type="text" name="attr_origintrait3" class="flex">
+		<input type="text" name="attr_trait1" class="flex">
+		<input type="text" name="attr_trait2" class="flex padsides">
+		<input type="text" name="attr_trait3" class="flex">
 	</div>
 	<div>
 		<h6 data-i18n="originlifelike">What was your life like?</h6>
@@ -373,9 +437,9 @@
 	</div>
 	<div class="flexcontainer">
 		<h6 data-i18n="traits">Traits:</h6>
-		<input type="text" name="attr_origintrait4" class="flex">
-		<input type="text" name="attr_origintrait5" class="flex padsides">
-		<input type="text" name="attr_origintrait6" class="flex">
+		<input type="text" name="attr_trait4" class="flex">
+		<input type="text" name="attr_trait5" class="flex padsides">
+		<input type="text" name="attr_trait6" class="flex">
 	</div>
 	<div>
 		<h6 data-i18n="originreaction">How did you react to the Isekai Event?</h6>
@@ -387,9 +451,9 @@
 	</div>
 	<div class="flexcontainer">
 		<h6 data-i18n="traits">Traits:</h6>
-		<input type="text" name="attr_origintrait7" class="flex">
-		<input type="text" name="attr_origintrait8" class="flex padsides">
-		<input type="text" name="attr_origintrait9" class="flex">
+		<input type="text" name="attr_trait7" class="flex">
+		<input type="text" name="attr_trait8" class="flex padsides">
+		<input type="text" name="attr_trait9" class="flex">
 	</div>
 	<div>
 		<h6 data-i18n="originlifechanged">Now that your life has changed, what will you do?</h6>
@@ -397,8 +461,14 @@
 	<textarea name="attr_originfuture" class="spaced"></textarea>		
 	<div>
 		<h6 data-i18n="universaltraits">Universal Traits (5 traits)</h6>
+		<div class="flexcontainer">
+			<input type="text" name="attr_unitrait1" class="flex">
+			<input type="text" name="attr_unitrait2" class="flex padsides">
+			<input type="text" name="attr_unitrait3" class="flex padsides">
+			<input type="text" name="attr_unitrait4" class="flex padsides">
+			<input type="text" name="attr_unitrait5" class="flex">
+		</div>
 	</div>
-	<textarea name="attr_originuniversaltraits" class="spaced"></textarea>
 	<div>
 		<h6 data-i18n="adversities">Adversities:</h6>
 	</div>
@@ -421,11 +491,13 @@
 			<span class="flex" data-i18n="castingtime">Casting Time</span>
 			<span class="flex" data-i18n="apcost">AP Cost</span>
 			<span class="flex" data-i18n="upgrades">Upgrades</span>
+			<span data-i18n="s" data-i18n-title="shown">S</span>
 		</div>
 	</div>
-	<fieldset class="repeating_spellsfull">
+	<fieldset class="repeating_spells">
 		<div class="spaced flexcontainer">
 			<input type="text" name="attr_spell" class="flex">
+			<input type="checkbox" name="attr_onmain" value="on">
 		</div>
 	</fieldset>	
 </div>
@@ -442,11 +514,13 @@
 			<span class="flex" data-i18n="castingtime">Casting Time</span>
 			<span class="flex" data-i18n="apcost">AP Cost</span>
 			<span class="flex" data-i18n="upgrades">Upgrades</span>
+			<span data-i18n="s" data-i18n-title="shown">S</span>
 		</div>
 	</div>
-	<fieldset class="repeating_abilitiesfull">
+	<fieldset class="repeating_abilities">
 		<div class="spaced flexcontainer">
 			<input type="text" name="attr_ability" class="flex">
+			<input type="checkbox" name="attr_onmain" value="on">
 		</div>
 	</fieldset>	
 </div>
@@ -456,17 +530,10 @@
 			<h4 data-i18n="perks">Perks:</h4>
 			<h6 data-i18n="perktext">&emsp;RECEIVED AT LEVELS 5, 15, 25, ETC OF EACH ATTRIBUTE</h6>
 		</div>
-		<fieldset class="repeating_perksfull spaced">
-			<div class="spaced threecolrow">
-				<div class="col">
-					<input type="text" name="attr_perk1" class="fullwidth">
-				</div>
-				<div class="col">
-					<input type="text" name="attr_perk2" class="fullwidth">
-				</div>
-				<div class="col">
-					<input type="text" name="attr_perk3" class="fullwidth">
-				</div>								
+		<fieldset class="repeating_perks spaced">
+			<div class="spaced">
+				<input type="text" name="attr_perk" class="fullwidth">
+				<input type="checkbox" name="attr_onmain" value="on">
 			</div>
 		</fieldset>
 	</div>
@@ -483,7 +550,8 @@
 				<span class="flex" data-i18n="damage">Damage</span>								
 				<span class="flex" data-i18n="durability">Durability</span>
 				<span class="flex" data-i18n="total">Total</span>
-				<span data-i18n="broken">Broken</span>
+				<span class="padsides" data-i18n="b" data-i18n-title="broken">B</span>
+				<span data-i18n="s" data-i18n-title="shown">S</span>
 			</div>
 		</div>
 		<fieldset class="repeating_inventory spaced">
@@ -496,6 +564,7 @@
 				<input type="text" class="boxedinv flex padsides" name="attr_durability">
 				<input type="text" class="boxedinv flex padsides" name="attr_total">
 				<input type="checkbox" class="invcheck" name="attr_broken">
+				<input type="checkbox" class="invcheck" name="attr_onmain">
 			</div>
 		</fieldset>
 	</div>
@@ -504,12 +573,38 @@
 			Level Up Notes
 		</div>							
 	</div>
-	<fieldset class="repeating_levelnotes">
+	<fieldset class="repeating_levelnotes spaced">
 		<div class="spaced flexcontainer">
 			<input type="text" name="attr_note" class="flex">
 		</div>
-	</fieldset>	
+	</fieldset>
+	<div class="version">HTML: v0.2 (Ember)<br>CSS: <span class="cssver"></span><br>Translation: <span data-i18n="version"></span>
+	</div>
 </div>
+
+<rolltemplate class="sheet-rolltemplate-isekai">
+	<div class="sheet-template-container">
+		<div class="sheet-template-header">{{name}}</div>	
+		{{#attribute}}<div class="sheet-template-row"><span class="sheet-template-desc">{{attribute}}-based Skill Roll</span></div>{{/attribute}}
+	<div class="sheet-template-resultrow">Result: {{actroll}}</span></div>
+	<div class="sheet-template-row">Luck: <div class="sheet-rolltemplate-luckrack"><div class="sheet-rolltemplate-rollcolor1"></div>
+		{{#rollGreater() computed::actroll 1}}<div class="sheet-rolltemplate-rollcolor2"></div>{{/rollGreater() computed::actroll 1}}
+		{{#rollGreater() computed::actroll 2}}<div class="sheet-rolltemplate-rollcolor3"></div>{{/rollGreater() computed::actroll 2}}
+		{{#rollGreater() computed::actroll 3}}<div class="sheet-rolltemplate-rollcolor4"></div>{{/rollGreater() computed::actroll 3}}
+		{{#rollGreater() computed::actroll 4}}<div class="sheet-rolltemplate-rollcolor5"></div>{{/rollGreater() computed::actroll 4}}
+		{{#rollGreater() computed::actroll 5}}<div class="sheet-rolltemplate-rollcolor6"></div>{{/rollGreater() computed::actroll 5}}
+		{{#^rollGreater() computed::actroll 5}}<div class="sheet-rolltemplate-rollblank"></div>{{/^rollGreater() computed::actroll 5}}
+		{{#^rollGreater() computed::actroll 4}}<div class="sheet-rolltemplate-rollblank"></div>{{/^rollGreater() computed::actroll 4}}
+		{{#^rollGreater() computed::actroll 3}}<div class="sheet-rolltemplate-rollblank"></div>{{/^rollGreater() computed::actroll 3}}
+		{{#^rollGreater() computed::actroll 2}}<div class="sheet-rolltemplate-rollblank"></div>{{/^rollGreater() computed::actroll 2}}
+		{{#^rollGreater() computed::actroll 1}}<div class="sheet-rolltemplate-rollblank"></div>{{/^rollGreater() computed::actroll 1}}
+	</div>
+	</div>
+</div>
+</rolltemplate>
+
+
+
 <script type="text/worker">
 	on("change:str change:agi change:luck change:charm change:vit change:sense change:will change:int sheet:opened", function () {
 		let attrs = ['str','agi','luck','charm','vit','sense','will', 'int'];
@@ -532,6 +627,18 @@
 		});
 	});
 	
+	on("change:repeating_perks:onmain", function (eventInfo) {
+		console.log(eventInfo.sourceAttribute);
+	});
+	
+	on("change:level", function (eventInfo) {
+		getAttrs(["level"], function(values) {
+			let numlev = parseInt(values.level) ?? 1;
+			let points = (numlev * 5) + (Math.floor(numlev / 10) *10);
+			setAttrs({"skillpointstotal": points, "upgradepointstotal": points});
+		});
+	});
+	
 	on("clicked:character", function() { setAttrs({"sheetTab":"character"}); });
 	on("clicked:origins", function() { setAttrs({"sheetTab":"origins"}); });
 	on("clicked:spells", function() { setAttrs({"sheetTab":"spells"}); });
@@ -541,4 +648,31 @@
 	on("change:repeating_skills:skilllevel", function(eventInfo) {
 		setAttrs({"repeating_skills_skillmod":Math.floor((parseInt(eventInfo.newValue)||0)/10)});		
 	});
-	</script>						
+	
+	on("clicked:agiroll clicked:strroll clicked:vitroll clicked:senseroll clicked:introll clicked:charmroll clicked:willroll clicked:luckroll", (info) => {
+		let attr = info.triggerName.replace("clicked:","").replace("roll","");
+		let abbr = { "agi": "Agility", "str": "Strength", "vit": "Vitality", "sense": "Sense", "int": "Intelligence", "charm": "Charm", "will":"Willpower", "luck":"Luck"}
+		startRoll("&{template:isekai} {{name="+abbr[attr]+" Roll}} {{actroll=[[2d10+1d6[Luck]+@{"+attr+"Mod}[Attr]+@{"+attr+"Buff}[Buff]]]}}", (results) => {
+			finishRoll(results.rollId,{"actroll": results.results.actroll.dice[2]});			
+		});
+	});
+	
+	on("clicked:repeating_skills:skillroll", async (info) => {
+		let attr = info.sourceAttribute.slice(0,-9);
+		let attrtouse = await getQuery("?{Which Attribute to Use?|Strength,str|Agility,agi|Vitality,vit|Sense,sense|Intelligence,int|Charm,charm|Willpower,will|Luck,luck}");
+		let abbr = { "agi": "Agility", "str": "Strength", "vit": "Vitality", "sense": "Sense", "int": "Intelligence", "charm": "Charm", "will":"Willpower", "luck":"Luck"}
+		startRoll("&{template:isekai} {{name=@{"+attr+"skillname} Roll}} {{actroll=[[2d10+1d6[Luck]+@{"+attrtouse+"Mod}[Attr]+@{"+attrtouse+"Buff}[Buff]+@{"+attr+"skillmod}[Skill]]]}} {{attribute="+abbr[attrtouse]+"}}", (results) => {
+			finishRoll(results.rollId,{"actroll": results.results.actroll.dice[2]});			
+		});
+	});
+	
+	//With thanks to Oosh for the example function!
+	const getQuery = async (queryText) => {
+		const rxGrab = /^0\[(.*)\]\s*$/;
+		let rollBase = `! {{query1=[[ 0[${queryText}] ]]}}`, // just a [[0]] roll with an inline tag
+		queryRoll = await startRoll(rollBase),
+		queryResponse = (queryRoll.results.query1.expression.match(rxGrab) || [])[1]; 
+		finishRoll(queryRoll.rollId); // you can just let this time out if you want - we're done with it
+		return queryResponse;
+	}; 
+	</script>									

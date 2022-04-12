@@ -28,12 +28,33 @@ h4,.blackbox {
 	font-weight: bold;
 }
 
+.sheet-darkmode h4, .sheet-darkmode .blackbox  {
+	background-color: #130019;
+}
+
+.sheet-darkmode h1,
+.sheet-darkmode h2,
+.sheet-darkmode h3,
+.sheet-darkmode h5,
+.sheet-darkmode h6 {
+	color: rgb(179,179,179);
+}
+
 .fakeinput {
 	font-family: Rationale;
 font-size: 16px;
 	line-height: 30px;
 	height: 30px;
 	border-bottom: 1px dashed black;
+}
+
+.sheet-darkmode .charsheet .fakeinput {
+	border-bottom: 1px dashed rgb(179,179,179);
+}
+
+.sheet-darkmode .charsheet {
+	background: rgb(31,31,31);
+	color: rgb(179,179,179);
 }
 
 .charsheet input[type='number'] {
@@ -44,6 +65,7 @@ font-size: 16px;
 	font-family: Rationale;
 	font-size: 16px;
 	text-align: right;
+	background: transparent;
 }
 
 .charsheet input[type='text'] {
@@ -54,13 +76,30 @@ font-size: 16px;
 	width: 0px;
 	font-family: Rationale;
 	font-size: 16px;
+	background: transparent;
 }
 
 .charsheet textarea {
 	font-family: Rationale;
 	font-size: 16px;
+	background: transparent;
+}
+.sheet-darkmode .charsheet input[type='number'],
+.sheet-darkmode .charsheet input[type='text'],
+.sheet-darkmode .charsheet textarea {
+	border-top: 0px none transparent;
+	border-left: 0px none transparent;
+	border-right: 0px none transparent;
+	border-bottom: 1px dashed rgb(179,179,179);
+	color: rgb(179,179,179);
 }
 
+.sheet-darkmode .charsheet button:not(.tabbutton) {
+	border: 1px solid black;
+	font-family: Rationale;
+	background-image: linear-gradient(0deg, rgba(112,1,145,1) 0%, rgba(38,0,50,1) 100%);
+	color: rgb(179,179,179);	
+}
 .threecolrow {
 	margin-bottom: 3px;
 }
@@ -114,8 +153,18 @@ font-size: 16px;
 	float: right;
 	top: 8px;
 }
+.alignright {
+	text-align: right;
+}
+.alignleft {
+	text-align: left;
+}
 .spaced {
 	margin-bottom: 5px;
+}
+
+.dicefontd20 {
+	font-family: dicefontd20 !important;
 }
 
 .padsides {
@@ -128,8 +177,18 @@ font-size: 16px;
 	width: auto;
 	padding-left: 6px;
 	display: flex;
+	flex-wrap: wrap;
 	margin-left: 10px;
 	margin-right: 10px;
+}
+
+.break {
+	flex-basis: 100%;
+	height: 0;
+}
+
+.sheet-darkmode .boxed {
+	border: 1px solid rgb(179,179,179);
 }
 
 .boxed input[type='number'] {
@@ -143,6 +202,7 @@ font-size: 16px;
 	border-right: 1px solid black !important;
 	border-top: 1px solid black !important;
 }
+
 .tar {
 	text-align: right;
 }
@@ -158,6 +218,57 @@ font-size: 16px;
 	margin-top: 5px !important;
 }
 
+.fiftywidth input, .fiftywidth div {	
+	width: calc(50% - 10px) !important;
+	display: inline-block;
+}
+.fiftywidth input:placeholder-shown {
+	display: none;
+}
+.fiftywidth h6 {
+	display: none;
+}
+.fiftywidth input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + input:placeholder-shown + h6 {
+	display: inline;
+}
+.additionalTab .repcontainer[data-groupname="repeating_perks"] > .repitem {
+	display: inline-block;
+	width: calc(50% - 10px);
+}
+.additionalTab .repcontainer[data-groupname="repeating_perks"] > .repitem:nth-child(odd) {
+	margin-right: 10px;
+}
+.additionalTab .repcontainer[data-groupname="repeating_perks"] > .repitem .spaced {
+	display: flex;
+}
+.additionalTab .repcontainer[data-groupname="repeating_perks"] > .repitem .spaced input[type="text"] {
+	flex: 1;
+}
+
+.characterTab input[name="attr_onmain"] + div { display: none; }
+.characterTab input[name="attr_onmain"][value="on"] + div,
+.characterTab input[name="attr_onmain"][value="on"] + div,
+.characterTab input[name="attr_onmain"][value="on"] + div {
+	display: flex;
+}
+.characterTab .repcontainer[data-groupname="repeating_perks"] .repitem {
+	display: inline-block;
+}
+.characterTab .repcontainer[data-groupname="repeating_perks"] .spaced {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+.characterTab .repcontrol[data-groupname="repeating_perks"],
+.characterTab .repcontrol[data-groupname="repeating_abilities"],
+.characterTab .repcontrol[data-groupname="repeating_spells"],
+.characterTab .repcontrol[data-groupname="repeating_inventory"] {
+	display: none;
+}
+.version {
+	opacity: 0.3;
+	font-size: 10px;
+}
 /* Wheel CSS */
 .wheelbox {
 	position: relative;
@@ -171,7 +282,7 @@ font-size: 16px;
 	z-index:11;
 	position: absolute;
 	background: transparent;
-	border: none;
+	border: none !important;
 	font-weight: bold;
 	font-size: 18px;
 	text-align: left;
@@ -189,6 +300,15 @@ font-size: 16px;
 
 .wheel-slice {
 	transform: scale(0);
+}
+
+.wheelbutton {
+	border: none !important;
+	background: transparent;
+	background-image: none !important;
+	cursor: pointer;
+	position: absolute;
+	z-index: 11;
 }
 .wheel-attr[value="1"] + .wheel-slice { transform: scale(0.19); }
 .wheel-attr[value="2"] + .wheel-slice { transform: scale(0.28); }
@@ -209,6 +329,23 @@ font-size: 16px;
 #wheel-charm { left: 21px; top: 344px; transform: rotate(60deg); }
 #wheel-will { left: 193px; top: 448px; transform: rotate(10deg); }
 #wheel-luck { left: 312px; top: 420px; transform: rotate(-25deg); }
+
+#agiroll { left: 82px; top: 20px; height: 65px; width: 100px; } 
+#strroll { left: 2px;  top: 98px;  width: 59px;  height: 134px;} 
+#vitroll { left: 244px;  top: 9px;  width: 117px;  height: 58px;} 
+#senseroll { left: 397px;  top: 82px;  width: 56px;  height: 100px;} 
+#introll { left: 388px;  top: 250px;  width: 70px;  height: 150px;} 
+#charmroll { left: 5px;  top: 245px;  width: 44px;  height: 119px;} 
+#willroll { left: 82px;  top: 392px;  width: 131px;  height: 76px;} 
+#luckroll { left: 250px;  top: 427px;  width: 100px;  height: 42px;}
+
+.wheelgrid {
+	content: url("https://www.shadowrequiem.space/images/wheel.png");
+}
+
+.sheet-darkmode .wheelgrid {
+	content: url("https://www.shadowrequiem.space/images/wheel-dark.png")
+}
 
 /* Page Buttons */
 .characterTab,.originsTab,.spellsTab,.abilitiesTab,.additionalTab { display: none; }
@@ -231,4 +368,78 @@ font-size: 16px;
 .tabstoggle[value="additional"] + div #btnadditional {
 	background-image: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
 	color: white;
+}
+#btncharacter,#btnorigins,#btnspells,#btnabilities,#btnadditional {
+	border: 1px solid rgb(179,179,179);
+}
+.sheet-darkmode .tabstoggle[value="character"] + div #btncharacter,
+.sheet-darkmode .tabstoggle[value="origins"] + div #btnorigins,
+.sheet-darkmode .tabstoggle[value="spells"] + div #btnspells,
+.sheet-darkmode .tabstoggle[value="abilities"] + div #btnabilities,
+.sheet-darkmode .tabstoggle[value="additional"] + div #btnadditional {
+	background-image: linear-gradient(0deg, rgba(112,1,145,1) 0%, rgba(38,0,50,1) 100%);
+}
+
+/*Roll Template*/
+.sheet-rolltemplate-isekai {
+	font-family: Rationale;
+	text-align: center;
+	border: 2px solid black;
+	background: white;
+}
+.sheet-rolltemplate-isekai.sheet-rolltemplate-darkmode {
+	background: black;
+	color: rgb(179,179,179);
+	border: 2px solid rgba(112,1,145,1);
+}
+.sheet-rolltemplate-isekai .sheet-template-resultrow {
+	margin-top: 3px;
+}
+.sheet-rolltemplate-isekai .sheet-template-header {
+	background: black;	
+	font-weight: bold;
+	font-size: large;
+	color: white;
+	padding-bottom: 3px;
+	padding-top: 2px;
+}
+
+.sheet-rolltemplate-isekai.sheet-rolltemplate-darkmode .sheet-template-header {
+	background: rgba(112,1,145,1);
+}
+
+.sheet-rolltemplate-isekai .sheet-template-desc {
+	font-style: italic;
+	font-size: x-small;
+}
+.sheet-rolltemplate-luckrack {
+	display: inline;
+}
+
+.sheet-rolltemplate-luckrack div {
+	display: inline-block;
+	width: 10px;
+	height: 5px;
+	border: 1px solid black;
+}
+.sheet-rolltemplate-luckrack.sheet-rolltemplate-darkmode div {
+	border: 1px solid rgb(179,179,179);
+}
+
+.sheet-rolltemplate-isekai .inlinerollresult {
+	background: transparent !important;
+	border: none !important;
+}
+
+.sheet-rolltemplate-rollcolor1 { background: #de425b; }
+.sheet-rolltemplate-rollcolor2 { background: #feba65; }
+.sheet-rolltemplate-rollcolor3 { background: #fff18f; }
+.sheet-rolltemplate-rollcolor4 { background: #afd07c; }
+.sheet-rolltemplate-rollcolor5 { background: #64ad73; }
+.sheet-rolltemplate-rollcolor6 { background: #488f31; }
+
+/*Version info*/
+
+.cssver::after {
+	content: "v0.2 (Ember)"
 }
